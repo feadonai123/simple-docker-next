@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  next:
+    container_name: next
+    build: .
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    command: npm run dev
